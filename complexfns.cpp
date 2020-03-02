@@ -8,12 +8,14 @@ Complex::Complex() {
 	imag = 0;
 }
 
+//_real and real, _imag and imag should be flipped!! Values are assigned from right hand size to left hand side!!!
 Complex::Complex(double _real, double _imag) {
 	//Constructor with parameters
 	_real = real;
 	_imag = imag;
 }
 
+//_real and real should be flipped!! Values are assigned from right hand size to left hand side!!!
 Complex::Complex(double _real) {
 	_real = real;
 	imag = 0;
@@ -35,7 +37,6 @@ double Complex::_imag() const {
 	return imag;
 }
 
-//Need to account if imag is negative
 //print function
 void Complex::print() {
 	std::cout << real;
@@ -73,7 +74,6 @@ double Complex::phase() {
 	return c;
 }
 
-//Not compatiable with main.cpp, needs to return complex
 //adding function
 Complex Complex::add(Complex c) {
 	Complex temp;
@@ -82,7 +82,7 @@ Complex Complex::add(Complex c) {
 	return temp;
 }
 
-//Not compatiable with main.cpp, needs to return complex
+//This function is not returning a complex number
 //subtraction function
 Complex Complex::sub(Complex c) {
 	Complex temp;
@@ -90,7 +90,6 @@ Complex Complex::sub(Complex c) {
 	temp.imag = imag - c.imag;
 }
 
-//Not compatiable with main.cpp, needs to return complex
 //Multiplication function
 Complex Complex::mult(Complex c) {
 	Complex temp;
@@ -99,7 +98,6 @@ Complex Complex::mult(Complex c) {
 	return temp;
 }
 
-//Not compatiable with main.cpp, needs to return complex
 //division function
 Complex Complex::div(Complex c) {
 	Complex temp;
@@ -134,7 +132,6 @@ Complex Complex::operator/(Complex c) {
 	return temp;
 }
 
-//this operator needs to return complex, please refer to the point class in the lecture notes on c++ classes
 Complex Complex::operator=(Complex c) {
 	Complex temp;
 	temp.real = c.real;
@@ -142,12 +139,12 @@ Complex Complex::operator=(Complex c) {
 	return temp;
 }
 
+//Need to account if imag is negative
 std::ostream& operator<<(std::ostream &out, const Complex &c) {
 	out << c.real << " +" << c.imag << " i" << std::endl;
 	return out;
 }
 
-//In the header file, c is not a reference
 std::istream& operator>>(std::istream &in, Complex &c) {
 	in >> c.real >> c.imag;
 	return in;
