@@ -29,7 +29,7 @@ class Complex {
 		Complex operator-(Complex c);
 		Complex operator*(Complex c);
 		Complex operator/(Complex c);
-		Complex operator=(Complex c);
+//		Complex operator=(Complex c);
 
 		friend std::ostream& operator<<(std::ostream &out, const Complex &c);
 		//missing & in front of c

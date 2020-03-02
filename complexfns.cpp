@@ -11,13 +11,13 @@ Complex::Complex() {
 //_real and real, _imag and imag should be flipped!! Values are assigned from right hand size to left hand side!!!
 Complex::Complex(double _real, double _imag) {
 	//Constructor with parameters
-	_real = real;
-	_imag = imag;
+	real = _real;
+	imag = _imag;
 }
 
 //_real and real should be flipped!! Values are assigned from right hand size to left hand side!!!
 Complex::Complex(double _real) {
-	_real = real;
+	real = _real;
 	imag = 0;
 }
 
@@ -71,6 +71,7 @@ double Complex::magnitude() {
 double Complex::phase() {
 	double c;
 	c = atan(imag/real);
+	c = c * 180 / 3.14159;
 	return c;
 }
 
@@ -88,6 +89,7 @@ Complex Complex::sub(Complex c) {
 	Complex temp;
 	temp.real = real - c.real;
 	temp.imag = imag - c.imag;
+	return temp;
 }
 
 //Multiplication function
@@ -132,16 +134,14 @@ Complex Complex::operator/(Complex c) {
 	return temp;
 }
 
-Complex Complex::operator=(Complex c) {
-	Complex temp;
-	temp.real = c.real;
-	temp.imag = c.imag;
-	return temp;
-}
-
 //Need to account if imag is negative
 std::ostream& operator<<(std::ostream &out, const Complex &c) {
-	out << c.real << " +" << c.imag << " i" << std::endl;
+	if((c.imag > 0)||(c.imag == 0)) {
+		out << c.real << " +" << c.imag << " i" << std::endl;
+	}
+	else {
+		out << c.real << " - " << c.imag << "i" << std::endl;
+	}
 	return out;
 }
 
