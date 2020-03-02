@@ -19,9 +19,13 @@ Complex::Complex(double _real) {
 	imag = 0;
 }
 
+Complex::~Complex() {}
 //Copy Constructor
 Complex::Complex(const Complex &_complex) : real(_complex.real), imag(_complex.imag) {
 }
+
+//Destructor
+
 //real getter
 double Complex::_real() const {
 	return real;

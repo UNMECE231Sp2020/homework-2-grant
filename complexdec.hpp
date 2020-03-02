@@ -10,6 +10,7 @@ class Complex {
 		Complex(double _real, double _imag);
 		Complex(double _real);
 		Complex(const Complex &_complex);
+		~Complex();
 		//Getters
 		double _real() const;
 		double _imag() const;
@@ -33,6 +34,5 @@ class Complex {
 		friend std::ostream& operator<<(std::ostream &out, const Complex &c);
 		//missing & in front of c
 		friend std::istream& operator>>(std::istream &in, Complex &c);
-//missing semicolon
 };
 	
