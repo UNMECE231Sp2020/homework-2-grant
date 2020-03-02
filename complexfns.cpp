@@ -22,6 +22,7 @@ double Complex::_imag() const {
 	return imag;
 }
 
+//Need to account if imag is negative
 //print function
 void Complex::print() {
 	std::cout << real << " + ";
@@ -50,24 +51,28 @@ double Complex::phase() {
 	return c;
 }
 
+//Not compatiable with main.cpp, needs to return complex
 //adding function
 void Complex::add(Complex c) {
 	real += c.real;
 	imag += c.imag;
 }
 
+//Not compatiable with main.cpp, needs to return complex
 //subtraction function
 void Complex::sub(Complex c) {
 	real -= c.real;
 	imag -=c.imag;
 }
 
+//Not compatiable with main.cpp, needs to return complex
 //Multiplication function
 void Complex::mult(Complex c) {
 	real = real*c.real - imag*c.imag;
 	imag = real*c.imag + imag*c.real;
 }
 
+//Not compatiable with main.cpp, needs to return complex
 //division function
 void Complex::div(Complex c) {
 	real = (real*c.real + imag*c.imag)/(c.real*c.real + c.imag*c.imag);
@@ -81,7 +86,6 @@ Complex Complex::operator+(Complex c) {
 	temp.imag = imag + c.imag;
 	return temp;
 }
-
 Complex Complex::operator-(Complex c) {
 	Complex temp;
 	temp.real = real - c.real;
@@ -94,7 +98,6 @@ Complex Complex::operator*(Complex c){
 	temp.imag = real*c.imag + imag*c.real;
 	return temp;
 }
-
 Complex Complex::operator/(Complex c) {
 	Complex temp;
 	temp.real = (real*c.real + imag*c.imag)/(c.real*c.real - c.imag*c.imag);
@@ -102,6 +105,7 @@ Complex Complex::operator/(Complex c) {
 	return temp;
 }
 
+//this operator needs to return complex, please refer to the point class in the lecture notes on c++ classes
 void Complex::operator=(Complex c) {
 	real = c.real;
 	imag = c.imag;
@@ -112,6 +116,7 @@ std::ostream& operator<<(std::ostream &out, const Complex &c) {
 	return out;
 }
 
+//In the header file, c is not a reference
 std::istream& operator>>(std::istream &in, Complex &c) {
 	in >> c.real >> c.imag;
 	return in;
