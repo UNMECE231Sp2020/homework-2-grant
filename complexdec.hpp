@@ -5,14 +5,16 @@ class Complex {
 		double real;
 		double imag;
 	public:
+		//Constructors and Destructor
 		Complex();
 		Complex(double real, double imag);
 		Complex(const Complex &_complex);
-		
+		//Getters
 		double _real() const;
 		double _imag() const;
+		//Print function
 		void print();
-		
+		//Functions
 		Complex conjugate();
 		double magnitude();
 		double phase();
@@ -20,7 +22,7 @@ class Complex {
 		void sub(Complex c);
 		void mult(Complex c);
 		void div(Complex c);
-
+		//Operator overloading
 		Complex operator+(Complex c);
 		Complex operator-(Complex c);
 		Complex operator*(Complex c);
